@@ -22,10 +22,10 @@ class TestHttpClient: XCTestCase {
         super.tearDown()
     }
 
-    func test1GetMethod() {
-        let received = expectation(description: "Simple Get")
+    func test1SimpleSearch() {
+        let received = expectation(description: "Simple Search")
 
-        HttpClient.sharedInstance.execute(serviceUrl: "http://paray.ddns.net:5984",
+        HttpClient.sharedInstance.execute(serviceUrl: "https://itunes.apple.com/search?term=jack+johnson",
                                           webMethod: .Get,
                                           executionHandler:
             (success:{
