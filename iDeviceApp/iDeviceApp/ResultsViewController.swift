@@ -6,9 +6,12 @@
 //  Copyright © 2019 Oliver Paray. All rights reserved.
 //
 
+import Library
 import UIKit
 
 class ResultsViewController: UITableViewController {
+
+    public var ResultsToDisplay:JSON?
 
     override func viewDidLoad() {
         super.viewDidLoad()

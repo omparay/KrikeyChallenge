@@ -72,6 +72,7 @@
 		A7B56DD022C16E48006E504F /* TestUIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B56DCF22C16E48006E504F /* TestUIColorExtensions.swift */; };
 		A7B56DD222C16E57006E504F /* TestArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B56DD122C16E57006E504F /* TestArrayExtensions.swift */; };
 		A7B56DD422C1D12D006E504F /* TestRandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B56DD322C1D12D006E504F /* TestRandomGenerator.swift */; };
+		A7B56E1922C1DEC4006E504F /* iTunesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B56E1822C1DEC4006E504F /* iTunesSearch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -131,6 +132,7 @@
 		A7B56DCF22C16E48006E504F /* TestUIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUIColorExtensions.swift; sourceTree = "<group>"; };
 		A7B56DD122C16E57006E504F /* TestArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestArrayExtensions.swift; sourceTree = "<group>"; };
 		A7B56DD322C1D12D006E504F /* TestRandomGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRandomGenerator.swift; sourceTree = "<group>"; };
+		A7B56E1822C1DEC4006E504F /* iTunesSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 				A7B56D7D22C16506006E504F /* Feature.swift */,
 				A7B56D8222C16506006E504F /* Hasher.swift */,
 				A7B56D8122C16506006E504F /* HttpClient.swift */,
+				A7B56E1822C1DEC4006E504F /* iTunesSearch.swift */,
 				A7B56D7E22C16506006E504F /* Lorem.swift */,
 				A7B56D8422C16506006E504F /* Metrics.swift */,
 				A7B56D8322C16506006E504F /* Parser.swift */,
@@ -398,6 +401,7 @@
 				A7B56D7422C164D3006E504F /* CGFloat+Extension.swift in Sources */,
 				A7B56D7022C164D3006E504F /* Array+Extension.swift in Sources */,
 				A7B56D7722C164D3006E504F /* UIWindow+Extension.swift in Sources */,
+				A7B56E1922C1DEC4006E504F /* iTunesSearch.swift in Sources */,
 				A7B56D8822C16506006E504F /* Reachability.swift in Sources */,
 				A7B56D6E22C164D3006E504F /* Dictionary+Extension.swift in Sources */,
 				A7B56D8C22C16506006E504F /* Metrics.swift in Sources */,

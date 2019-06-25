@@ -6,6 +6,7 @@
 //  Copyright © 2019 Oliver Paray. All rights reserved.
 //
 
+import Library
 import UIKit
 
 @UIApplicationMain
