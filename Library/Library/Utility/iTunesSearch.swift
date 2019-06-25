@@ -11,7 +11,7 @@ import Foundation
 public class iTunesSearch {
 
     enum SearchKeys: String{
-        case term,media,entity
+        case term,country,media,limit,explicit
     }
 
     enum ResultKeys: String{
@@ -123,6 +123,6 @@ public class iTunesSearch {
                               andLimit: Int?,
                               isExplicit: Bool?,
                               handler: ExecutionBlock) {
-
+        
     }
 }
