@@ -9,7 +9,7 @@
 import Library
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController,UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
