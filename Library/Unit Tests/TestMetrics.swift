@@ -15,7 +15,7 @@ public enum TestActionEvent:String{
 class TestMetrics: XCTestCase {
 
     var testExpectations:[XCTestExpectation]?
-    var testTable:NSNotificationTable?
+    var testTable:NotificationTable?
 
     override class func setUp(){
         super.setUp()
