@@ -10,8 +10,14 @@ import Foundation
 
 public class iTunesSearch {
 
+    public static let searchURL = "https://itunes.apple.com/search?"
+
     enum SearchKeys: String{
         case term,country,media,limit,explicit
+    }
+
+    enum CountryKeys: String{
+        case US,UM,JP,AU,CA,CN,DE,GB,IL,IT,KR,ZA,ES,FR
     }
 
     enum ResultKeys: String{
@@ -117,8 +123,8 @@ public class iTunesSearch {
         }
     }
 
-    static func performSearch(withTerm: String?,
-                              andCountry: String?,
+    static func performSearch(withTerm: String = "*.*",
+                              andCountry: String = "US",
                               andMedia: String?,
                               andLimit: Int?,
                               isExplicit: Bool?,
