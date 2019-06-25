@@ -10,7 +10,7 @@ import Foundation
 
 public class iTunesSearch {
 
-    public static let searchURL = "https://itunes.apple.com/search?"
+    public static let searchURL = "https://itunes.apple.com/search"
 
     enum SearchKeys: String{
         case term,country,media,limit,explicit
@@ -123,12 +123,25 @@ public class iTunesSearch {
         }
     }
 
-    static func performSearch(withTerm: String = "*.*",
+    static func performSearch(withTerm: String,
                               andCountry: String = "US",
-                              andMedia: String?,
-                              andLimit: Int?,
-                              isExplicit: Bool?,
+                              andMedia: String? = nil,
+                              andLimit: Int? = nil,
+                              isExplicit: Bool? = nil,
                               handler: ExecutionBlock) {
-        
+        var searchParams = [iTunesSearch.SearchKeys.term:withTerm,
+                            iTunesSearch.SearchKeys.country:andCountry]
+        if let media = andMedia {
+            searchParams[iTunesSearch.SearchKeys.media] = media
+        }
+        if let limit = andLimit{
+            searchParams[iTunesSearch.SearchKeys.limit] = "\(limit)"
+        }
+        if let explicit = isExplicit{
+            searchParams[iTunesSearch.SearchKeys.explicit] = (explicit) ? "Yes" : "No"
+        }
+        let params = String(queryStringFromDictionary: searchParams)
+        let urlString = iTunesSearch.searchURL + params
+        HttpClient.sharedInstance.execute(serviceUrl: urlString, webMethod: .Get, executionHandler: handler)
     }
 }

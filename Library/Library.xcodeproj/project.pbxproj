@@ -73,6 +73,7 @@
 		A7B56DD222C16E57006E504F /* TestArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B56DD122C16E57006E504F /* TestArrayExtensions.swift */; };
 		A7B56DD422C1D12D006E504F /* TestRandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B56DD322C1D12D006E504F /* TestRandomGenerator.swift */; };
 		A7B56E1922C1DEC4006E504F /* iTunesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B56E1822C1DEC4006E504F /* iTunesSearch.swift */; };
+		A7D2242522C222F600B77CD7 /* iTunesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B56E1822C1DEC4006E504F /* iTunesSearch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -421,6 +422,7 @@
 			files = (
 				A7B56DA522C16C16006E504F /* Random.swift in Sources */,
 				A7B56DB222C16C2C006E504F /* UIDevice+Extension.swift in Sources */,
+				A7D2242522C222F600B77CD7 /* iTunesSearch.swift in Sources */,
 				A7B56DAB22C16C1E006E504F /* Dictionary+Extension.swift in Sources */,
 				A7B56DB322C16C2C006E504F /* UIColor+Extension.swift in Sources */,
 				A7B56DAC22C16C1E006E504F /* Data+Extension.swift in Sources */,

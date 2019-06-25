@@ -58,4 +58,39 @@ class TestHttpClient: XCTestCase {
 
         wait(for: [received], timeout: 5.0)
     }
+
+    func test2iTunesSearch() {
+        let received = expectation(description: "iTunes Search")
+
+        iTunesSearch.performSearch(withTerm: "Jack Johnson", handler:
+            (success: {
+                (response,data) in
+                if let httpResponse = response as? HTTPURLResponse, let httpData = data{
+                    if httpResponse.statusCode != 200{
+                        XCTFail("Returned status code: \(httpResponse.statusCode)")
+                        received.fulfill()
+                    }
+                    if let jsonString = String(data: httpData, encoding: String.Encoding.utf8){
+                        XCTAssertNotEqual(jsonString, "")
+                        print("Recieved JSON:\n\(jsonString)\n")
+                        received.fulfill()
+                    } else {
+                        XCTFail("Could not decode expected JSON")
+                        received.fulfill()
+                    }
+                } else {
+                    XCTFail("No response or data")
+                    received.fulfill()
+                }
+            }, failure: {
+                (response,error,message) in
+                if let errorMessage = message{
+                    XCTFail(errorMessage)
+                    received.fulfill()
+                }
+            })
+        )
+
+        wait(for: [received], timeout: 5.0)
+    }
 }

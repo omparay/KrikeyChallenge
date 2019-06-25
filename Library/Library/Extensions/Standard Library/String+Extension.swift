@@ -14,7 +14,10 @@ public extension String{
     init(queryStringFromDictionary input: Dictionary<AnyHashable,Any>){
         self.init()
         for (key,value) in input{
-            self.append("\(key)=\(value)&")
+            if let key1 = ("\(key)").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                let value1 = ("\(value)").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed){
+                self.append("\(key1)=\(value1)&")
+            }
         }
         if self.count > 0{
             self.insert("?", at: self.startIndex)
@@ -35,7 +38,7 @@ public extension String{
     }
 
     //MARK: - Class Methods
-      
+
     //MARK: - Public Methods
 
     func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
@@ -51,7 +54,7 @@ public extension String{
 
         return ceil(boundingBox.width)
     }
-        
+
     func subString(start: Int) -> String{
         let startIndex = self.index(self.startIndex, offsetBy: start)
         return String(self[startIndex...])
