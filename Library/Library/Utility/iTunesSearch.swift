@@ -124,7 +124,7 @@ public class iTunesSearch {
     }
 
     static func performSearch(withTerm: String,
-                              andCountry: String = "US",
+                              andCountry: String = iTunesSearch.CountryKeys.US.rawValue,
                               andMedia: String? = nil,
                               andLimit: Int? = nil,
                               isExplicit: Bool? = nil,

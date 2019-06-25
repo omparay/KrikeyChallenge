@@ -62,7 +62,7 @@ class TestHttpClient: XCTestCase {
     func test2iTunesSearch() {
         let received = expectation(description: "iTunes Search")
 
-        iTunesSearch.performSearch(withTerm: "Jack Johnson", handler:
+        iTunesSearch.performSearch(withTerm: "regex", handler:
             (success: {
                 (response,data) in
                 if let httpResponse = response as? HTTPURLResponse, let httpData = data{
