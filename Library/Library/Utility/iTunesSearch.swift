@@ -20,22 +20,31 @@ public class iTunesSearch {
         case US,UM,JP,AU,CA,CN,DE,GB,IL,IT,KR,ZA,ES,FR
     }
 
+    enum MediaKeys: String,CaseIterable{
+        case movie,podcast,music,musicVideo,audiobook,shortFilm,tvShow,software,ebook,all
+    }
+
     enum ResultKeys: String,CaseIterable{
         case resultCount,results
 
-        public enum SongKeys: String,CaseIterable{
+        public enum CommonKeys: String,CaseIterable{
             case
             kind,
             artistName,
-            collectionCensoredName,
             trackCensoredName,
+            artworkUrl100,
+            trackPrice,
+            price
+        }
+
+        public enum SongKeys: String,CaseIterable{
+            case
+            collectionCensoredName,
             artistViewUrl,
             collectionViewUrl,
             trackViewUrl,
             previewUrl,
-            artworkUrl100,
             collectionPrice,
-            trackPrice,
             releaseDate,
             collectionExplicitness,
             trackExplicitness,
@@ -47,15 +56,10 @@ public class iTunesSearch {
 
         public enum eBookKeys: String,CaseIterable{
             case
-            artworkUrl100,
-            trackCensoredName,
             trackViewUrl,
             releaseDate,
             currency,
-            artistName,
             genres,
-            kind,
-            price,
             description
         }
 
@@ -65,13 +69,10 @@ public class iTunesSearch {
             screenshotUrls,
             ipadScreenshotUrls,
             appletvScreenshotUrls,
-            artworkUrl100,
             artistViewUrl,
-            kind,
             features,
             advisories,
             averageUserRatingForCurrentVersion,
-            trackCensoredName,
             sellerUrl,
             contentAdvisoryRating,
             trackViewUrl,
@@ -82,9 +83,7 @@ public class iTunesSearch {
             currency,
             version,
             minimumOsVersion,
-            artistName,
             genres,
-            price,
             description,
             averageUserRating,
             userRatingCount
@@ -92,14 +91,9 @@ public class iTunesSearch {
 
         public enum MovieKeys: String,CaseIterable{
             case
-            kind,
-            artistName,
-            trackCensoredName,
             trackViewUrl,
             previewUrl,
-            artworkUrl100,
             collectionPrice,
-            trackPrice,
             trackRentalPrice,
             collectionHdPrice,
             trackHdPrice,
@@ -125,15 +119,13 @@ public class iTunesSearch {
 
     static func performSearch(withTerm: String,
                               andCountry: String = iTunesSearch.CountryKeys.US.rawValue,
-                              andMedia: String? = nil,
+                              andMedia: String = iTunesSearch.MediaKeys.all.rawValue,
                               andLimit: Int? = nil,
                               isExplicit: Bool? = nil,
                               handler: ExecutionBlock) {
         var searchParams = [iTunesSearch.SearchKeys.term:withTerm,
-                            iTunesSearch.SearchKeys.country:andCountry]
-        if let media = andMedia {
-            searchParams[iTunesSearch.SearchKeys.media] = media
-        }
+                            iTunesSearch.SearchKeys.country:andCountry,
+                            iTunesSearch.SearchKeys.media:andMedia]
         if let limit = andLimit{
             searchParams[iTunesSearch.SearchKeys.limit] = "\(limit)"
         }
