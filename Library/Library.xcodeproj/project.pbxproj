@@ -71,6 +71,7 @@
 		A7B56DCE22C16E36006E504F /* TestStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B56DCD22C16E36006E504F /* TestStringExtensions.swift */; };
 		A7B56DD022C16E48006E504F /* TestUIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B56DCF22C16E48006E504F /* TestUIColorExtensions.swift */; };
 		A7B56DD222C16E57006E504F /* TestArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B56DD122C16E57006E504F /* TestArrayExtensions.swift */; };
+		A7B56DD422C1D12D006E504F /* TestRandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B56DD322C1D12D006E504F /* TestRandomGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -129,6 +130,7 @@
 		A7B56DCD22C16E36006E504F /* TestStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStringExtensions.swift; sourceTree = "<group>"; };
 		A7B56DCF22C16E48006E504F /* TestUIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUIColorExtensions.swift; sourceTree = "<group>"; };
 		A7B56DD122C16E57006E504F /* TestArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestArrayExtensions.swift; sourceTree = "<group>"; };
+		A7B56DD322C1D12D006E504F /* TestRandomGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRandomGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 				A7B56D9C22C16B2E006E504F /* TestHttpClient.swift */,
 				A7B56DC022C16DEE006E504F /* TestMetrics.swift */,
 				A7B56DC222C16E11006E504F /* TestParser.swift */,
+				A7B56DD322C1D12D006E504F /* TestRandomGenerator.swift */,
 				A7B56DCD22C16E36006E504F /* TestStringExtensions.swift */,
 				A7B56DCF22C16E48006E504F /* TestUIColorExtensions.swift */,
 				A7B56D9522C1656C006E504F /* Info.plist */,
@@ -443,6 +446,7 @@
 				A7B56DBF22C16DDF006E504F /* TestFeature.swift in Sources */,
 				A7B56DA122C16C16006E504F /* HttpClient.swift in Sources */,
 				A7B56DAE22C16C21006E504F /* NSManagedObject+Extension.swift in Sources */,
+				A7B56DD422C1D12D006E504F /* TestRandomGenerator.swift in Sources */,
 				A7B56D9D22C16B2E006E504F /* TestHttpClient.swift in Sources */,
 				A7B56DA422C16C16006E504F /* Parser.swift in Sources */,
 				A7B56DA922C16C1E006E504F /* TimeInterval+Extension.swift in Sources */,

@@ -6,8 +6,6 @@
 
 import Foundation
 
-//TODO: When the new swift 4 Random functions are out this class needs to be updated to use the new functions
-
 public class Random{
 
     //MARK: - Properties
@@ -17,23 +15,39 @@ public class Random{
     //MARK: - Class Methods
 
     public static func double(min: Double? = 0,max: Double) -> Double{
+        #if swift(>=4.2)
+        return Double.random(in: (min ?? 0)...max)
+        #else
         return (min ?? 0) + (drand48() * (max - (min ?? 0)))
+        #endif
     }
 
     public static func float(min: Float? = 0,max: Float) -> Float{
+        #if swift(>=4.2)
+        return Float.random(in: (min ?? 0)...max)
+        #else
         return Float(double(min: Double(min ?? 0), max: Double(max)))
+        #endif
     }
 
     public static func uint(min: UInt? = 0,max:UInt) -> UInt{
+        #if swift(>=4.2)
+        return UInt.random(in: (min ?? 0)...max)
+        #else
         return UInt(UInt32(min ?? 0) + arc4random_uniform(UInt32(max - (min ?? 0))))
+        #endif
     }
 
     public static func int(min: Int? = 0,max: Int) -> Int{
+        #if swift(>=4.2)
+        return Int.random(in: (min ?? 0)...max)
+        #else
         return Int(uint(min: UInt(min ?? 0),max: UInt(max)))
+        #endif
     }
 
     public static func date(days: Int) -> Date{
-        let numdays = int(max: days)
+        let numdays = Random.int(max: days)
         return Date.now.addingDays(days: numdays)
     }
 
