@@ -12,18 +12,18 @@ public class iTunesSearch {
 
     public static let searchURL = "https://itunes.apple.com/search"
 
-    enum SearchKeys: String{
+    enum SearchKeys: String,CaseIterable{
         case term,country,media,limit,explicit
     }
 
-    enum CountryKeys: String{
+    enum CountryKeys: String,CaseIterable{
         case US,UM,JP,AU,CA,CN,DE,GB,IL,IT,KR,ZA,ES,FR
     }
 
-    enum ResultKeys: String{
+    enum ResultKeys: String,CaseIterable{
         case resultCount,results
 
-        public enum SongKeys: String{
+        public enum SongKeys: String,CaseIterable{
             case
             kind,
             artistName,
@@ -45,7 +45,7 @@ public class iTunesSearch {
             isStreamable
         }
 
-        public enum eBookKeys: String{
+        public enum eBookKeys: String,CaseIterable{
             case
             artworkUrl100,
             trackCensoredName,
@@ -59,7 +59,7 @@ public class iTunesSearch {
             description
         }
 
-        public enum SoftareKeys: String {
+        public enum SoftareKeys: String,CaseIterable{
             case
             isGameCenterEnabled,
             screenshotUrls,
@@ -90,7 +90,7 @@ public class iTunesSearch {
             userRatingCount
         }
 
-        public enum MovieKeys: String{
+        public enum MovieKeys: String,CaseIterable{
             case
             kind,
             artistName,
@@ -115,10 +115,10 @@ public class iTunesSearch {
         }
     }
 
-    enum ErrorKeys: String{
+    enum ErrorKeys: String,CaseIterable{
         case errorMessage,queryParameters
 
-        public enum QueryParameterKeys: String{
+        public enum QueryParameterKeys: String,CaseIterable{
             case output,callback,country,limit,term,lang
         }
     }
