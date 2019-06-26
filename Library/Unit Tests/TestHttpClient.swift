@@ -93,7 +93,7 @@ class TestHttpClient: XCTestCase {
 
         wait(for: [received], timeout: 5.0)
 
-        for value in iTunesSearch.CountryKeys.allCases{
+        for value in iTunesSearch.CountryKeys.AllCases {
             print(value)
         }
     }
