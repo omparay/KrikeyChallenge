@@ -19,8 +19,18 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var searchActivity: UIActivityIndicatorView!
 
-    private var alert : UIAlertController = UIAlertController(title: "Alert", message: String.empty, preferredStyle: .alert)
-    private var results : JSON?
+    private var alert: UIAlertController = UIAlertController(title: "Alert", message: String.empty, preferredStyle: .alert)
+    private var results: JSON?
+    private var hasResults: Bool {
+        get {
+            if let _ = self.results {
+                return true
+            } else {
+                self.displayError(withTitle: "Error...", andMessage: "No results to display.")
+                return false
+            }
+        }
+    }
 
     // MARK: Methods
 
@@ -37,11 +47,9 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case Segues.toResults.rawValue:
-            guard let toDisplay = results, let destination = segue.destination as? ResultsViewController else {
-                self.displayError()
-                return
+            if let destination = segue.destination as? ResultsViewController {
+                destination.ResultsToDisplay = self.results
             }
-            destination.ResultsToDisplay = toDisplay
         default:
             break
         }
@@ -50,6 +58,7 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
     private func searchAnimation(_ start: Bool=true){
         DispatchQueue.main.async {
             self.searchActivity.isHidden = !start
+            self.searchButton.isEnabled = !start
             if start {
                 self.searchActivity.startAnimating()
             } else {
@@ -130,9 +139,12 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
     @IBAction func buttonPressed(sender: UIButton){
         switch sender{
         case self.searchButton:
-            self.performSegue(withIdentifier: Segues.toResults.rawValue, sender: self)
+            if self.hasResults {
+                self.performSegue(withIdentifier: Segues.toResults.rawValue, sender: self)
+            }
         case self.clearButton:
             self.searchTextField.text = String.empty
+            self.results = nil
         default:
             break
         }
