@@ -11,9 +11,37 @@ import UIKit
 
 class SearchViewController: UIViewController,UITextFieldDelegate {
 
+    // MARK: Properties
+
+    @IBOutlet weak var instructionLabel: UILabel!
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var searchActivity: UIActivityIndicatorView!
+
+    // MARK: Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    }
+
+    // MARK: Delegates
+
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return true
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+    }
+
+    // MARK: Actions
+
+    @IBAction func buttonPressed(sender: Any){
+
     }
 
     @IBAction func retunToSearch(_ unwindSegue:UIStoryboardSegue){
