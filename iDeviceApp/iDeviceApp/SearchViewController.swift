@@ -35,6 +35,9 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else {
+            return
+        }
         
     }
 

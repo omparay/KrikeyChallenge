@@ -12,19 +12,19 @@ public class iTunesSearch {
 
     public static let searchURL = "https://itunes.apple.com/search"
 
-    enum SearchKeys: String,CaseIterable{
+    public enum SearchKeys: String,CaseIterable{
         case term,country,media,limit,explicit
     }
 
-    enum CountryKeys: String,CaseIterable{
+    public enum CountryKeys: String,CaseIterable{
         case US,UM,JP,AU,CA,CN,DE,GB,IL,IT,KR,ZA,ES,FR
     }
 
-    enum MediaKeys: String,CaseIterable{
+    public enum MediaKeys: String,CaseIterable{
         case movie,podcast,music,musicVideo,audiobook,shortFilm,tvShow,software,ebook,all
     }
 
-    enum ResultKeys: String,CaseIterable{
+    public enum ResultKeys: String,CaseIterable{
         case resultCount,results
 
         public enum CommonKeys: String,CaseIterable{
@@ -109,7 +109,7 @@ public class iTunesSearch {
         }
     }
 
-    enum ErrorKeys: String,CaseIterable{
+    public enum ErrorKeys: String,CaseIterable{
         case errorMessage,queryParameters
 
         public enum QueryParameterKeys: String,CaseIterable{
@@ -117,7 +117,7 @@ public class iTunesSearch {
         }
     }
 
-    static func performSearch(withTerm: String,
+    public static func performSearch(withTerm: String,
                               andCountry: String = iTunesSearch.CountryKeys.US.rawValue,
                               andMedia: String = iTunesSearch.MediaKeys.all.rawValue,
                               andLimit: Int? = nil,
