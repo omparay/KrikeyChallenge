@@ -80,7 +80,6 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
         }
         self.results = jsonData
         DispatchQueue.main.async {
-            print(jsonData)
             self.searchAnimation(false)
             self.segueIfResultsReady()
         }

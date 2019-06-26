@@ -135,4 +135,12 @@ class DetailsViewController: UITableViewController {
         return cell
     }
 
+    //MARK: Actions
+
+    @IBAction @objc func buttonPressed(sender: UIButton){
+        guard let urlString = sender.title(for: .normal), let url = URL(string: urlString) else {
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
 }
