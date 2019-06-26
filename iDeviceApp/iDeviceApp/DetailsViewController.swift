@@ -8,6 +8,7 @@
 
 import Library
 import UIKit
+import WebKit
 
 class DetailsViewController: UITableViewController {
 
@@ -52,6 +53,33 @@ class DetailsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    func format(cell: UITableViewCell, withIdentifier: String, andTitle: String?, andInfo: String?){
+        switch withIdentifier{
+        case DetailsViewController.detailLinkCell:
+            let titleLabel = cell.contentView.viewWithTag(1) as! UILabel
+            titleLabel.text = andTitle
+            let infoButton = cell.contentView.viewWithTag(2) as! UIButton
+            infoButton.setTitle(andInfo, for: .normal)
+        case DetailsViewController.detailPreviewCell:
+            let previewView = cell.contentView.viewWithTag(1) as! WKWebView
+            guard let info = andInfo, let previewUrl = URL(string: info) else {
+                return
+            }
+            previewView.load(URLRequest(url: previewUrl))
+        case DetailsViewController.detailDescriptionCell:
+            let descriptionView = cell.contentView.viewWithTag(1) as! UITextView
+            guard let info = andInfo else {
+                return
+            }
+            descriptionView.text = info
+        default:
+            let titleLabel = cell.contentView.viewWithTag(1) as! UILabel
+            titleLabel.text = andTitle
+            let infoLabel = cell.contentView.viewWithTag(2) as! UILabel
+            infoLabel.text = andInfo
+        }
     }
 
     // MARK: Delegates
@@ -100,7 +128,10 @@ class DetailsViewController: UITableViewController {
             break
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        
+        guard let dataToDisplay = self.DetailsToDisplay, let detailInfo = dataToDisplay[dataType] else {
+            return cell
+        }
+        self.format(cell: cell, withIdentifier: identifier, andTitle: dataType, andInfo: "\(detailInfo)")
         return cell
     }
 

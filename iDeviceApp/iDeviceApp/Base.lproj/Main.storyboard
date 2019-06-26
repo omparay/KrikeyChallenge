@@ -26,35 +26,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter search term here" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ceM-Rr-czP">
-                                <rect key="frame" x="16" y="284" width="343" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter search term here" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ceM-Rr-czP">
+                                <rect key="frame" x="16" y="284" width="343" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="N6H-ba-NmY"/>
+                                    <constraint firstAttribute="height" constant="35" id="N6H-ba-NmY"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="P93-8g-Z4P"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhB-Wz-TKW">
-                                <rect key="frame" x="16" y="322" width="110" height="64"/>
+                                <rect key="frame" x="16" y="322" width="117" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="wzT-Kq-kim"/>
+                                    <constraint firstAttribute="height" constant="35" id="wzT-Kq-kim"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
-                                <state key="normal" title="Search"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                <state key="normal" title="Results"/>
                                 <connections>
                                     <action selector="buttonPressedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dcA-Bl-TMH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wl2-NZ-K2P">
-                                <rect key="frame" x="249" y="322" width="110" height="64"/>
+                                <rect key="frame" x="242" y="322" width="117" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="c1T-9h-1xb"/>
+                                    <constraint firstAttribute="height" constant="35" id="c1T-9h-1xb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>
                                     <action selector="buttonPressedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S9y-sp-0FK"/>
@@ -67,18 +67,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wl2-NZ-K2P" firstAttribute="leading" secondItem="xhB-Wz-TKW" secondAttribute="trailing" constant="109" id="8Cf-1u-CUh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wl2-NZ-K2P" secondAttribute="trailing" constant="16" id="8cA-WS-0Ue"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ceM-Rr-czP" secondAttribute="trailing" constant="16" id="DEt-nJ-H5q"/>
                             <constraint firstItem="3Qe-SS-9gX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="GVA-D0-fXc"/>
                             <constraint firstItem="wl2-NZ-K2P" firstAttribute="centerY" secondItem="xhB-Wz-TKW" secondAttribute="centerY" id="Hyp-eC-8cU"/>
                             <constraint firstItem="ceM-Rr-czP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="284" id="JDg-T0-lxi"/>
                             <constraint firstItem="xhB-Wz-TKW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="NEV-c1-65i"/>
-                            <constraint firstItem="xhB-Wz-TKW" firstAttribute="top" secondItem="ceM-Rr-czP" secondAttribute="bottom" constant="8" id="NF5-gU-5r6"/>
+                            <constraint firstItem="xhB-Wz-TKW" firstAttribute="top" secondItem="ceM-Rr-czP" secondAttribute="bottom" constant="3" id="NF5-gU-5r6"/>
                             <constraint firstItem="ceM-Rr-czP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="T9f-mi-2va"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Qe-SS-9gX" secondAttribute="trailing" constant="16" id="ffN-dW-YcM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cN2-LA-O3X" secondAttribute="bottom" constant="128" id="iw5-gb-SW2"/>
                             <constraint firstItem="wl2-NZ-K2P" firstAttribute="width" secondItem="xhB-Wz-TKW" secondAttribute="width" id="jCJ-3W-Cs5"/>
-                            <constraint firstItem="wl2-NZ-K2P" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xhB-Wz-TKW" secondAttribute="trailing" constant="123" id="jSN-qu-FvQ"/>
                             <constraint firstItem="cN2-LA-O3X" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mHY-5W-cfH"/>
                             <constraint firstItem="3Qe-SS-9gX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="zFZ-lI-Bch"/>
                         </constraints>
