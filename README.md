@@ -10,7 +10,7 @@ for a company called USA-UES. I basically became tired of using various HTTP lib
 AlamoFire, PromiseKit, etc. Every time I use them they keep updating and making fixes. This is already so
 annoying in PHP, Arduino and NodeJS projects that I follow.
 
-I know that Apple had made significan strides in making their native HTTP client system as robust as possible
+I know that Apple had made significant strides in making their native HTTP client system as robust as possible
 so I opted to use that and basically expose execution blocks as failure or success parameters in my HttpClient
 object.
 
