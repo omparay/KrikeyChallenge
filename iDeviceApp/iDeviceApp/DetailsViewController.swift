@@ -102,7 +102,7 @@ class DetailsViewController: UITableViewController {
         let dataType = self.selectedDetails[indexPath.row]
         switch dataType {
         case iTunesSearch.ResultKeys.PreviewableKeys.previewUrl.rawValue:
-            return (self.tableView.bounds.height * 9)/16
+            return (self.tableView.bounds.width * 9)/16
         case iTunesSearch.ResultKeys.DescribableKeys.description.rawValue:
             guard let details = self.DetailsToDisplay, let description = details[iTunesSearch.ResultKeys.DescribableKeys.description.rawValue] else {
                 return self.tableView.bounds.height
