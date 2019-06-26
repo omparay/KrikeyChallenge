@@ -21,7 +21,32 @@ class DetailsViewController: UITableViewController {
 
     public var DetailsToDisplay:JSON?
 
-    private var selectedDetails = Array<Any>()
+    private var selectedDetails: [String] {
+        get {
+            var result = [String]()
+            if self.isPreviewAvailable {
+                for item in iTunesSearch.ResultKeys.PreviewableKeys.allCases {
+                    result.append(item.rawValue)
+                }
+            } else {
+                for item in iTunesSearch.ResultKeys.DescribableKeys.allCases {
+                    result.append(item.rawValue)
+                }
+            }
+            return result
+        }
+    }
+
+    private var isPreviewAvailable: Bool {
+        get {
+            var result = false
+            guard let details = self.DetailsToDisplay, let keys = details.allKeys as? [String] else {
+                return result
+            }
+            result = keys.contains(iTunesSearch.ResultKeys.PreviewableKeys.previewUrl.rawValue)
+            return result
+        }
+    }
 
     // MARK: Methods
 
@@ -36,11 +61,46 @@ class DetailsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        var result = 0
+        if self.isPreviewAvailable {
+            result = iTunesSearch.ResultKeys.PreviewableKeys.allCases.count
+        } else {
+            result = iTunesSearch.ResultKeys.DescribableKeys.allCases.count
+        }
+        return result
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let dataType = self.selectedDetails[indexPath.row]
+        switch dataType {
+        case iTunesSearch.ResultKeys.PreviewableKeys.previewUrl.rawValue:
+            return (self.tableView.bounds.height * 9)/16
+        case iTunesSearch.ResultKeys.DescribableKeys.description.rawValue:
+            guard let details = self.DetailsToDisplay, let description = details[iTunesSearch.ResultKeys.DescribableKeys.description.rawValue] else {
+                return self.tableView.bounds.height
+            }
+            let descriptionText = "\(description)"
+            return descriptionText.height(withConstrainedWidth: self.tableView.bounds.height - 32.0, font: UIFont.systemFont(ofSize: 16.0))
+        default:
+            return 25
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        var identifier = DetailsViewController.detailItemCell
+        let dataType = self.selectedDetails[indexPath.row]
+        switch dataType {
+        case iTunesSearch.ResultKeys.PreviewableKeys.previewUrl.rawValue:
+            identifier = DetailsViewController.detailPreviewCell
+        case iTunesSearch.ResultKeys.DescribableKeys.description.rawValue:
+            identifier = DetailsViewController.detailDescriptionCell
+        case iTunesSearch.ResultKeys.PreviewableKeys.trackViewUrl.rawValue:
+            identifier = DetailsViewController.detailLinkCell
+        default:
+            break
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        
         return cell
     }
 

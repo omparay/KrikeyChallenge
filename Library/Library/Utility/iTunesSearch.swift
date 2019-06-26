@@ -37,75 +37,20 @@ public class iTunesSearch {
             price
         }
 
-        public enum SongKeys: String,CaseIterable{
+        public enum PreviewableKeys: String,CaseIterable{
             case
-            collectionCensoredName,
-            artistViewUrl,
-            collectionViewUrl,
             trackViewUrl,
             previewUrl,
-            collectionPrice,
             releaseDate,
-            collectionExplicitness,
-            trackExplicitness,
-            country,
-            currency,
-            primaryGenreName,
-            isStreamable
+            currency
         }
 
-        public enum eBookKeys: String,CaseIterable{
+        public enum DescribableKeys: String,CaseIterable{
             case
             trackViewUrl,
             releaseDate,
             currency,
-            genres,
             description
-        }
-
-        public enum SoftareKeys: String,CaseIterable{
-            case
-            isGameCenterEnabled,
-            screenshotUrls,
-            ipadScreenshotUrls,
-            appletvScreenshotUrls,
-            artistViewUrl,
-            features,
-            advisories,
-            averageUserRatingForCurrentVersion,
-            sellerUrl,
-            contentAdvisoryRating,
-            trackViewUrl,
-            sellerName,
-            currentVersionReleaseDate,
-            releaseDate,
-            releaseNotes,
-            currency,
-            version,
-            minimumOsVersion,
-            genres,
-            description,
-            averageUserRating,
-            userRatingCount
-        }
-
-        public enum MovieKeys: String,CaseIterable{
-            case
-            trackViewUrl,
-            previewUrl,
-            collectionPrice,
-            trackRentalPrice,
-            collectionHdPrice,
-            trackHdPrice,
-            trackHdRentalPrice,
-            releaseDate,
-            collectionExplicitness,
-            trackExplicitness,
-            trackTimeMillis,
-            country,
-            currency,
-            contentAdvisoryRating,
-            longDescription
         }
     }
 
@@ -120,7 +65,7 @@ public class iTunesSearch {
     public static func performSearch(withTerm: String,
                               andCountry: String = iTunesSearch.CountryKeys.US.rawValue,
                               andMedia: String = iTunesSearch.MediaKeys.all.rawValue,
-                              andLimit: Int? = nil,
+                              andLimit: Int? = 200,
                               isExplicit: Bool? = nil,
                               handler: ExecutionBlock) {
         var searchParams = [iTunesSearch.SearchKeys.term:withTerm,
