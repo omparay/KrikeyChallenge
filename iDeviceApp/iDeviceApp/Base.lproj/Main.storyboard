@@ -351,12 +351,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <wkWebView tag="1" contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" allowsLinkPreview="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ro-yd-nWt">
+                                        <wkWebView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ro-yd-nWt">
                                             <rect key="frame" x="16" y="11" width="343" height="188"/>
                                             <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES" suppressesIncrementalRendering="YES">
-                                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
-                                                <wkPreferences key="preferences" javaScriptEnabled="NO"/>
+                                            <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES">
+                                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                <wkPreferences key="preferences" minimumFontSize="9"/>
                                             </wkWebViewConfiguration>
                                         </wkWebView>
                                     </subviews>
@@ -401,10 +401,14 @@
                         <barButtonItem key="backBarButtonItem" title="Results" id="P0d-tX-6Py"/>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="251-oc-Drs">
                             <connections>
-                                <segue destination="VZ1-ej-696" kind="unwind" identifier="toSearch" unwindAction="retunToSearch:" id="8ZG-aG-Xog"/>
+                                <action selector="barButtonPressedWithSender:" destination="CFh-r1-dKX" id="JAM-cb-CvD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="251-oc-Drs" id="ZaG-fB-b3q"/>
+                        <segue destination="VZ1-ej-696" kind="unwind" identifier="toSearch" unwindAction="retunToSearch:" id="gDQ-Nx-8ab"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGk-r5-7Oy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="VZ1-ej-696" userLabel="Exit" sceneMemberID="exit"/>

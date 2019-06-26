@@ -19,6 +19,7 @@ class DetailsViewController: UITableViewController {
     static let detailDescriptionCell = "detailDescriptionCell"
 
     // MARK: Properties
+    @IBOutlet weak var doneButton: UIBarButtonItem!
 
     public var DetailsToDisplay:JSON?
 
@@ -55,6 +56,10 @@ class DetailsViewController: UITableViewController {
         super.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
     func format(cell: UITableViewCell, withIdentifier: String, andTitle: String?, andInfo: String?){
         switch withIdentifier{
         case DetailsViewController.detailLinkCell:
@@ -62,6 +67,7 @@ class DetailsViewController: UITableViewController {
             titleLabel.text = andTitle
             let infoButton = cell.contentView.viewWithTag(2) as! UIButton
             infoButton.setTitle(andInfo, for: .normal)
+            infoButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .allTouchEvents)
         case DetailsViewController.detailPreviewCell:
             let previewView = cell.contentView.viewWithTag(1) as! WKWebView
             guard let info = andInfo, let previewUrl = URL(string: info) else {
@@ -137,10 +143,14 @@ class DetailsViewController: UITableViewController {
 
     //MARK: Actions
 
-    @IBAction @objc func buttonPressed(sender: UIButton){
+    @IBAction func buttonPressed(sender: UIButton){
         guard let urlString = sender.title(for: .normal), let url = URL(string: urlString) else {
             return
         }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+
+    @IBAction func barButtonPressed(sender: UIBarButtonItem){
+        self.performSegue(withIdentifier: Segues.toSearch.rawValue, sender: self)
     }
 }
