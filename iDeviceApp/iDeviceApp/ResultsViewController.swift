@@ -82,9 +82,9 @@ class ResultsViewController: UITableViewController {
         let priceLabel = cell.contentView.viewWithTag(5) as! UILabel
 
         if let item = self.getItemAtIndex(indexPath.row){
-            kindLabel.text = item[iTunesSearch.ResultKeys.CommonKeys.kind.rawValue] as? String
-            artistLabel.text = item[iTunesSearch.ResultKeys.CommonKeys.artistName.rawValue] as? String
-            titleLabel.text = item[iTunesSearch.ResultKeys.CommonKeys.trackCensoredName.rawValue] as? String
+            kindLabel.text = "\(item[iTunesSearch.ResultKeys.CommonKeys.kind.rawValue] ?? "Not Available")"
+            artistLabel.text = "\(item[iTunesSearch.ResultKeys.CommonKeys.artistName.rawValue] ?? "Not Available")"
+            titleLabel.text = "\(item[iTunesSearch.ResultKeys.CommonKeys.trackCensoredName.rawValue] ?? "Not Available")"
             priceLabel.text = self.discernPrice(item)
             if let imageUrl = item[iTunesSearch.ResultKeys.CommonKeys.artworkUrl100.rawValue] as? String{
                 let client = HttpClient()

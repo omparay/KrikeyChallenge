@@ -67,6 +67,12 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
         }
     }
 
+    private func segueIfResultsReady(){
+        if self.hasResults {
+            self.performSegue(withIdentifier: Segues.toResults.rawValue, sender: self)
+        }
+    }
+
     private func processResult(_ data:Data){
         guard let jsonData = Parser.jsonFrom(data: data) else {
             self.displayError()
@@ -76,6 +82,7 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
         DispatchQueue.main.async {
             print(jsonData)
             self.searchAnimation(false)
+            self.segueIfResultsReady()
         }
     }
 
@@ -139,9 +146,7 @@ class SearchViewController: UIViewController,UITextFieldDelegate {
     @IBAction func buttonPressed(sender: UIButton){
         switch sender{
         case self.searchButton:
-            if self.hasResults {
-                self.performSegue(withIdentifier: Segues.toResults.rawValue, sender: self)
-            }
+            self.segueIfResultsReady()
         case self.clearButton:
             self.searchTextField.text = String.empty
             self.results = nil
